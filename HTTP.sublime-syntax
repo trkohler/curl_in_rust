@@ -1,0 +1,33 @@
+%YAML 1.2
+---
+name: HTTP
+file_extensions:
+  - http
+scope: source.http
+contexts:
+  main:
+    - match: ([A-Z]+)( +)([^ ]+)( +)(HTTP)(/)(\d+\.\d+)
+      captures:
+        1: function.name.http
+        2: string.quoted.double.http
+        3: entity.name.section.http
+        4: string.quoted.double.http
+        5: keyword.http
+        6: keyword.operator.http
+        7: constant.numeric.integer.decimal.http
+    - match: (HTTP)(/)(\d+\.\d+)( +)(\d{3})( +)(.+)
+      captures:
+        1: keyword.http
+        2: keyword.operator.http
+        3: constant.language.http
+        4: string.quoted.double.http
+        5: constant.numeric.integer.decimal.http
+        6: string.quoted.double.http
+        7: keyword.symbol.http
+    - match: (.*?)( *)(:)( *)(.+)”
+       captures:
+        1: function.name.http
+        2: string.quoted.double.http
+        3: keyword.operator.http
+        4: string.quoted.double.http
+        5: string.quoted.double.http 
